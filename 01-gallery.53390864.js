@@ -521,7 +521,7 @@ new (0, _simplelightboxDefault.default)(".gallery a", {
     captionDelay: "250"
 });
 
-},{"./gallery-items":"9C7dK","simplelightbox":"9ydBq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","simplelightbox/dist/simple-lightbox.min.css":"kaxSc"}],"9C7dK":[function(require,module,exports) {
+},{"./gallery-items":"9C7dK","simplelightbox":"9ydBq","simplelightbox/dist/simple-lightbox.min.css":"kaxSc","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9C7dK":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "galleryItems", ()=>galleryItems);
@@ -2027,6 +2027,6 @@ var _default = SimpleLightbox;
 exports["default"] = _default;
 global.SimpleLightbox = SimpleLightbox;
 
-},{}],"kaxSc":[function() {},{}]},["8EXaa","6XVkV"], "6XVkV", "parcelRequired7c6")
+},{}],"kaxSc":[function() {},{}]},["8EXaa","6XVkV"], "6XVkV", "parcelRequire4c75")
 
 //# sourceMappingURL=01-gallery.53390864.js.map
