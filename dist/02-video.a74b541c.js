@@ -521,16 +521,23 @@ try {
     console.log("Can't load actual time...");
 }
 player.on("timeupdate", (0, _lodashThrottleDefault.default)(()=>{
-    // console.log('Zapis co 1 sekundę');
     player.getCurrentTime().then((seconds)=>{
-        // console.log(seconds);
+        console.log(seconds);
         _storage.save(KEY, seconds);
     }).catch(function(error1) {
         console.log("Something goes wrong...", error1.name);
     });
+    player.getEnded().then((ended)=>{
+        if (ended) {
+            _storage.save(KEY, 0);
+            console.log("DONE...");
+        } else _storage.save(KEY, seconds);
+    }).catch(function(error2) {
+        console.log("Something goes wrong...Ding dong", error2.name);
+    });
 }, 1000));
 
-},{"./storage":"h0qAZ","@vimeo/player":"kmmUG","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","lodash.throttle":"bGJVT"}],"h0qAZ":[function(require,module,exports) {
+},{"./storage":"h0qAZ","@vimeo/player":"kmmUG","lodash.throttle":"bGJVT","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"h0qAZ":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "save", ()=>save);
@@ -2367,6 +2374,6 @@ var global = arguments[3];
 }
 module.exports = throttle;
 
-},{}]},["5rKFT","fFZ34"], "fFZ34", "parcelRequired7c6")
+},{}]},["5rKFT","fFZ34"], "fFZ34", "parcelRequire4c75")
 
 //# sourceMappingURL=02-video.a74b541c.js.map

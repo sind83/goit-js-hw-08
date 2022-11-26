@@ -18,14 +18,28 @@ catch (error) {
     console.log("Can't load actual time...");
 }
 
-
 player.on('timeupdate', throttle(() => {
-    // console.log('Zapis co 1 sekundę');
+    
     player.getCurrentTime().then((seconds) => {
-        // console.log(seconds);
-        storage.save(KEY, seconds);
+         console.log(seconds);
+         
+            storage.save(KEY, seconds);
+
     }).catch(function (error) {
         console.log('Something goes wrong...', error.name)
+    });
+
+    player.getEnded().then((ended) => {
+        if (ended) {
+            storage.save(KEY, 0);
+            console.log('DONE...')
+        } else {
+            storage.save(KEY, seconds);
+
+        }
+
+    }).catch(function (error) {
+        console.log('Something goes wrong...Ding dong', error.name)
     });
 }, 1000)
 

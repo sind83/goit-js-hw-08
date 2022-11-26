@@ -1,5 +1,6 @@
 import * as storage from './storage';
 import throttle from 'lodash.throttle';
+import player from '@vimeo/player';
 
 const form = document.querySelector('form.feedback-form');
 const mail = form.querySelector('input[name="email"]');
@@ -16,9 +17,7 @@ window.addEventListener("load", () => {
     try {
         mail.value = formData.mail;
         message.value = formData.message;
-    } catch (error) {
-
-    }
+    } catch (error) { }
 
 });
 
@@ -28,10 +27,25 @@ form.addEventListener('input', throttle(() => {
 );
 
 sendBtn.addEventListener('click', (event) => {
+    console.log();
     event.preventDefault();
-    const formData = storage.load(KEY);
-    console.log(formData.mail, ' : ', formData.message);
-    mail.value = "";
-    message.value = "";
-    storage.remove(KEY);
+    if ((mail.value == '') || (message.value == ''))
+    {
+        if (mail.value == '') {
+            //console.log("Uzupełnij dane");
+            alert("Uzupełnij dane emali");
+        }
+        if (message.value == '') {
+            //console.log("Uzupełnij dane");
+            alert("Uzupełnij tekst wiadomości");
+        }
+     
+    }
+    else {
+        const formData = storage.load(KEY);
+        console.log(formData.mail, ' : ', formData.message);
+        mail.value = "";
+        message.value = "";
+        storage.remove(KEY);
+    }
 });
