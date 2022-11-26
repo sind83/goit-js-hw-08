@@ -19,11 +19,11 @@ catch (error) {
 }
 
 player.on('timeupdate', throttle(() => {
-    
+
     player.getCurrentTime().then((seconds) => {
-         console.log(seconds);
-         
-            storage.save(KEY, seconds);
+        console.log(seconds);
+
+        storage.save(KEY, seconds);
 
     }).catch(function (error) {
         console.log('Something goes wrong...', error.name)
@@ -33,14 +33,8 @@ player.on('timeupdate', throttle(() => {
         if (ended) {
             storage.save(KEY, 0);
             console.log('DONE...')
-        } else {
-            storage.save(KEY, seconds);
-
         }
-
-    }).catch(function (error) {
-        console.log('Something goes wrong...Ding dong', error.name)
     });
-}, 1000)
 
-);
+
+}), 1000);
