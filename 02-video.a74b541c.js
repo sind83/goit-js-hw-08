@@ -531,11 +531,9 @@ player.on("timeupdate", (0, _lodashThrottleDefault.default)(()=>{
         if (ended) {
             _storage.save(KEY, 0);
             console.log("DONE...");
-        } else _storage.save(KEY, seconds);
-    }).catch(function(error2) {
-        console.log("Something goes wrong...Ding dong", error2.name);
+        }
     });
-}, 1000));
+}), 1000);
 
 },{"./storage":"h0qAZ","@vimeo/player":"kmmUG","lodash.throttle":"bGJVT","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"h0qAZ":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
